@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Paintball</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+  <!--Local Scripts-->
+  <script src="./shoot.js"></script>
+</head>
+
+<body>
+  <a-scene id="scene">
+
+    <a-assets>
+      <a-asset-item id="shooter" src="./shooter/gun.gltf"></a-asset-item>      
+    </a-assets>
+
+    <!--A-Frame Environment-->
+    <a-entity id="environment" environment="preset: dream">
+    </a-entity>    
+    
+    <a-entity id="camera" camera position="0 8 4" wasd-controls look-controls="pointerLockEnabled: false">
+    </a-entity>
+
+    <!--Ground-->
+
+    <!--horizontal walls-->
+    <a-plane id="wall1" position="0 1 -6" rotation="0 0 0" height="4.5" width="7" color="pink" static-body>
+    </a-plane>
+    <a-plane id="wall2" position="8 1 -6" rotation="0 0 0" height="4.5" width="7" color="pink" static-body>
+    </a-plane>
+    <a-plane id="wall3" position="-8 1 -6" rotation="0 0 0" height="4.5" width="7" color="pink" static-body>
+    </a-plane>
+    <a-plane id="wall9" position="-8 2 -12" rotation="0 0 0" height="4.5" width="7" color="pink" static-body>
+    </a-plane>
+    <a-plane id="wall9" position="2 2 -12" rotation="0 0 0" height="4.5" width="7" color="pink" static-body>
+    </a-plane>
+    <a-plane id="wall9" position="12 2 -12" rotation="0 0 0" height="4.5" width="7" color="pink" static-body>
+    </a-plane>
+
+    <!--vertical walls-->
+    <a-plane id="wall4" position="-10 1 -9.4" rotation="0 45 0" height="4.5" width="7" color="purple" static-body>
+    </a-plane>
+    <a-plane id="wall5" position="-5.1 1 -9.4" rotation="0 -45 0" height="4.5" width="7" color="purple" static-body>
+    </a-plane>
+    <a-plane id="wall6" position="-0.15 1 -9.4" rotation="0 45 0" height="4.5" width="7" color="purple" static-body>
+    </a-plane>
+    <a-plane id="wall7" position="4.7 1 -9.4" rotation="0 -45 0" height="4.5" width="7" color="purple" static-body>
+    </a-plane> 
+    <a-plane id="wall8" position="9.6 1 -9.4" rotation="0 45 0" height="4.5" width="7" color="purple" static-body>
+    </a-plane> 
+    
+    <!--Camera and Cursor-->
+    <a-entity id="camera" camera position="0 1 -6" wasd-controls look-controls="pointerLockEnabled: false">
+      <a-entity id="weapon" gltf-model="#shooter" position="0 -4.4 3" rotation="0 180 0" scale="0.35 1 1" player-movement>
+      </a-entity>
+      <a-cursor></a-cursor>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
